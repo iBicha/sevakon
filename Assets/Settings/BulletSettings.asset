@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c4d2f580474458aad8e741fe2afe31, type: 3}
+  m_Name: BulletSettings
+  m_EditorClassIdentifier: 
+  duration: 1
+  offset: 3
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.0026245
+      inSlope: 10.7261915
+      outSlope: 10.7261915
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0741454
+    - serializedVersion: 3
+      time: 0.27223736
+      value: 1.4600489
+      inSlope: -7.175927
+      outSlope: -7.175927
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.101855606
+      outWeight: 0.03632035
+    - serializedVersion: 3
+      time: 0.39065135
+      value: 0.6876187
+      inSlope: -5.7466545
+      outSlope: -5.7466545
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08287729
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5827532
+      value: 0.5399929
+      inSlope: 5.569114
+      outSlope: 5.569114
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09963375
+      outWeight: 0.11668624
+    - serializedVersion: 3
+      time: 0.7622722
+      value: 0.9207769
+      inSlope: -4.2854614
+      outSlope: -4.2854614
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2551419
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9999758
+      value: 0.0029678345
+      inSlope: -0.05730909
+      outSlope: -0.05730909
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.28796676
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bulletPrefab: {fileID: 2994782974072571957, guid: 011393b6ae5f448abb720556ff894ffe, type: 3}
+  force: 350

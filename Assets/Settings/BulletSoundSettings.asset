@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f7ed672b71a4ce5b43b208cd76a8a0, type: 3}
+  m_Name: BulletSoundSettings
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 356ed57a2e3564d67875395064cba616, type: 3}
+  - {fileID: 8300000, guid: a64ace0f85ae446d49fca0ac8cd918b8, type: 3}
+  pitchShiftRange: 0.5
+  pitchShiftStep: 0.45
+  randomizePitchShift: 0

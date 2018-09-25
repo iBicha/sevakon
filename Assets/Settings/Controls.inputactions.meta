@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 578cc93d19b604ad5ac64f1379351595
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: <root>
+    11400002: Gameplay/Fire
+    11400004: Gameplay/Look
+    11400006: Gameplay/Jump
+    11400008: Gameplay/Move
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: e2fdc6edf8744b38b702a2a5ee3541b2, type: 3}
+  generateWrapperCode: 1
+  wrapperCodePath: Assets/Scripts/Input/Controls.cs
+  wrapperClassName: Controls
+  wrapperCodeNamespace: Sevakon.Input
+  generateActionEvents: 1
+  actionGuids: []
+  actionMapGuids: []
