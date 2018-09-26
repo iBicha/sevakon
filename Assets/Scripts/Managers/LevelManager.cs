@@ -1,6 +1,4 @@
-﻿using Sevakon.Systems;
-using Unity.Entities;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Sevakon.Managers
@@ -15,7 +13,8 @@ namespace Sevakon.Managers
         /// </summary>
         public void LoadGameScene()
         {
-            SceneManager.LoadScene(GameScene.name);
+            SceneManager.LoadScene("Gameplay");
+//            SceneManager.LoadScene(GameScene.name);
         }
     
         /// <summary>
@@ -23,6 +22,7 @@ namespace Sevakon.Managers
         /// </summary>
         public void LoadMenuScene()
         {
+            SceneManager.LoadScene("Menu");
             SceneManager.LoadScene(MenuScene.name);
         }
     }

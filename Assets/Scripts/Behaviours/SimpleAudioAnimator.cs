@@ -126,7 +126,7 @@ namespace Sevakon.Behaviours
             var samples = new float[clip.samples];
             clip.GetData(samples, 0);
 
-            var jobLevel = new MusicToAnimationCurveJob
+            var animationCurveJob = new MusicToAnimationCurveJob
             {
                 samples = new NativeArray<float>(samples, Allocator.Persistent),
                 lengthInSeconds = clip.length,
@@ -138,19 +138,21 @@ namespace Sevakon.Behaviours
                 timeList = new NativeList<float>(Allocator.Persistent),
                 volumeList = new NativeList<float>(Allocator.Persistent)
             };
-            var jobLevelHandle = jobLevel.Schedule();
+            var jobLevelHandle = animationCurveJob.Schedule();
             jobLevelHandle.Complete();
-
+            
             curve = new AnimationCurve();
 
-            for (int i = 0; i < jobLevel.timeList.Length; i++)
+            Debug.Log(animationCurveJob.timeList.Length);
+            
+            for (int i = 0; i < animationCurveJob.timeList.Length; i++)
             {
-                curve.AddKey(jobLevel.timeList[i], jobLevel.volumeList[i]);
+                curve.AddKey(animationCurveJob.timeList[i], animationCurveJob.volumeList[i]);
             }
 
-            jobLevel.samples.Dispose();
-            jobLevel.timeList.Dispose();
-            jobLevel.volumeList.Dispose();
+            animationCurveJob.samples.Dispose();
+            animationCurveJob.timeList.Dispose();
+            animationCurveJob.volumeList.Dispose();
 
             return curve;
         }
