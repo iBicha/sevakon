@@ -21,4 +21,4 @@ Use `WASD/Arrow keys` to move, use mouse to point, left click to shoot glowy cub
 
  - WebGL build [issues](https://issuetracker.unity3d.com/issues/lwrp-template-scene-is-not-rendered-in-webgl-when-built-with-lightweight-rp-template)
  - Input system [issues](https://github.com/Unity-Technologies/InputSystem/issues/253)
- - `BurstCompile` can 
+ - The input system fails on first domain load (and also interferes with the job system) making a build not usable (no input, and objects are not animated with music), and only playable in the editor

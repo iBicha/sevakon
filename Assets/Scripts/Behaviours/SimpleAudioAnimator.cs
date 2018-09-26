@@ -100,6 +100,7 @@ namespace Sevakon.Behaviours
         private Material material;
         private Vector3 initialScale;
 
+        [SerializeField]
         private AnimationCurve curve;
 
         private IEnumerator Start()
@@ -142,8 +143,6 @@ namespace Sevakon.Behaviours
             jobLevelHandle.Complete();
             
             curve = new AnimationCurve();
-
-            Debug.Log(animationCurveJob.timeList.Length);
             
             for (int i = 0; i < animationCurveJob.timeList.Length; i++)
             {
