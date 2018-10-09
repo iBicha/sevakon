@@ -1,12 +1,14 @@
 
 # Sevakon
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/uTljPs-2CKk/0.jpg)](https://www.youtube.com/watch?v=uTljPs-2CKk)
+
 Game prototype to experment with some of the newer Unity features:
 
  - Lightweight render pipeline
  - Postprocessing stack and custom effects
  - The new Input System
  - ECS/Job System/Burst compiler
-- ShaderGraph 
+ - ShaderGraph 
 
 Name was generated with a random game name generator.
 Unity 2018.3.0b2
