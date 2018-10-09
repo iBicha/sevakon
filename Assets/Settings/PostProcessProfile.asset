@@ -17,7 +17,27 @@ MonoBehaviour:
   - {fileID: 114252324386167986}
   - {fileID: 114519825960210478}
   - {fileID: 114367987275224822}
-  - {fileID: 114756782271144386}
+  - {fileID: 114333415672072500}
+  - {fileID: 114127048253844264}
+--- !u!114 &114127048253844264
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4531b46941a254af1b6cac005d91373f, type: 3}
+  m_Name: RenderWithMaterial
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  material:
+    overrideState: 1
+    value: {fileID: 2100000, guid: b41ba31a89ccb4d8fa96e9ec09253174, type: 2}
 --- !u!114 &114252324386167986
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -65,6 +85,35 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
+--- !u!114 &114333415672072500
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbfcb8e3940843b99787cd07c22f834, type: 3}
+  m_Name: Overlay
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  overlayTexture:
+    overrideState: 1
+    value: {fileID: 2800000, guid: abb66e181cea94298b8b4365f0ea3199, type: 3}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 0.1
+  displacement:
+    overrideState: 1
+    value: 0.5
+  displacementSpeed:
+    overrideState: 1
+    value: 0.1
 --- !u!114 &114367987275224822
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1410,6 +1459,25 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &114487741995049096
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4531b46941a254af1b6cac005d91373f, type: 3}
+  m_Name: Eff1
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  material:
+    overrideState: 0
+    value: {fileID: 0}
 --- !u!114 &114519825960210478
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1454,6 +1522,25 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
+--- !u!114 &114727827230834472
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4531b46941a254af1b6cac005d91373f, type: 3}
+  m_Name: RenderWithShader
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  material:
+    overrideState: 0
+    value: {fileID: 0}
 --- !u!114 &114756782271144386
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1483,3 +1570,22 @@ MonoBehaviour:
   displacementSpeed:
     overrideState: 1
     value: 0.1
+--- !u!114 &114981753237240138
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: RenderWithShader
+  m_EditorClassIdentifier: Assembly-CSharp::RenderWithShader
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  shader:
+    overrideState: 1
+    value: {fileID: 4800000, guid: e31287ce023394479a7b780a472d17fd, type: 3}

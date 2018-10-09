@@ -38,7 +38,8 @@ public sealed class OverlayRenderer : PostProcessEffectRenderer<Overlay>
     {
         var sheet = context.propertySheets.Get(shader);
         sheet.properties.SetFloat("_Blend", settings.intensity);
-        sheet.properties.SetTexture("_OverlayTex", settings.overlayTexture);
+        if(settings.overlayTexture.value != null)
+            sheet.properties.SetTexture("_OverlayTex", settings.overlayTexture);
 
         if (Time.time - lastRenderTime > settings.displacementSpeed)
         {
