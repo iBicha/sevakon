@@ -1,10 +1,11 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEditor.Graphing;
 
 namespace UnityEditor.ShaderGraph
 {
-    [Title("Input","Image Effects", "Texture", "Main Texture")]
+    [Title("Input","Image Effects", "Main Texture")]
     public class MainTextureNode : AbstractMaterialNode, IGeneratesBodyCode, IMayRequireMeshUV
     {
         public const int OutputSlotRGBAId = 0;
@@ -27,8 +28,9 @@ namespace UnityEditor.ShaderGraph
 
         public const int TextureInputId = 7;
         const string kTextureInputName = "_MainTex";
+        const string kTexturePreviewName = "_PreviewTexture";
 
-        public override bool hasPreview => false;
+        public override bool hasPreview => true;
 
         public MainTextureNode()
         {
@@ -64,20 +66,7 @@ namespace UnityEditor.ShaderGraph
             RemoveSlotsNameNotMatching(new[]
                 {OutputSlotRGBAId, OutputSlotRId, OutputSlotGId, OutputSlotBId, OutputSlotAId, UVOutput, UVInput, TextureInputId});
         }
-
-//        public override void ValidateNode()
-//        {
-//            var textureSlot = FindInputSlot<Texture2DInputMaterialSlot>(TextureInputId);
-//            textureSlot.defaultType = (textureType == TextureType.Normal ? TextureShaderProperty.DefaultType.Bump : TextureShaderProperty.DefaultType.White);
-//
-//            base.ValidateNode();
-//        }
-
-        public override string GetVariableNameForNode()
-        {
-            return base.GetVariableNameForNode();
-        }
-
+        
         public override string GetVariableNameForSlot(int slotId)
         {
             if (slotId == TextureInputId)
@@ -90,6 +79,8 @@ namespace UnityEditor.ShaderGraph
         public virtual void GenerateNodeCode(ShaderGenerator visitor, GraphContext graphContext,
             GenerationMode generationMode)
         {
+
+            var textureInput = generationMode.IsPreview() ? kTexturePreviewName : kTextureInputName;
             
             var uvName = GetSlotValue(UVInput, generationMode);
             
@@ -102,8 +93,8 @@ namespace UnityEditor.ShaderGraph
             var result = string.Format("{0}4 {1} = SAMPLE_TEXTURE2D({2}, {3}, {4});"
                 , precision
                 , GetVariableNameForSlot(OutputSlotRGBAId)
-                , kTextureInputName
-                , "sampler" + kTextureInputName
+                , textureInput
+                , "sampler" + textureInput
                 , GetVariableNameForSlot(UVInput));
 
             visitor.AddShaderChunk(result, true);
@@ -135,6 +126,17 @@ namespace UnityEditor.ShaderGraph
             return false;
         }
 
-        
+        public override void CollectShaderProperties(PropertyCollector properties, GenerationMode generationMode)
+        {
+            if (!generationMode.IsPreview())
+                return;
+
+            base.CollectShaderProperties(properties, generationMode);
+            properties.AddShaderProperty(new TextureShaderProperty()
+            {
+                overrideReferenceName = "_PreviewTexture",
+                generatePropertyBlock = false
+            });
+        }
     }
 }

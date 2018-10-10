@@ -15,9 +15,13 @@ public class RenderWithMaterial : PostProcessEffectSettings
 public class RenderWithMaterialRenderer : PostProcessEffectRenderer<RenderWithMaterial>
 {
     private static int _MainTex = Shader.PropertyToID("_MainTex");
+    private static int _PreviewTexture = Shader.PropertyToID("_PreviewTexture");
 
     public override void Render(PostProcessRenderContext context)
     {
+#if UNITY_EDITOR
+        context.command.SetGlobalTexture(_PreviewTexture, context.source);
+#endif
         Blit(context.command, context.source, context.destination, settings.material);
     }
 

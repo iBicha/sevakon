@@ -14,10 +14,8 @@ namespace UnityEditor.ShaderGraph
     public class ImageEffectMasterNode : MasterNode<IImageEffectSubShader>
     {
         public const string ColorSlotName = "Color";
-//        public const string DestinationSlotName = "Destination";
 
         public const int ColorSlotId = 0;
-//        public const int DestinationSlotId = 0;
 
         [SerializeField] SurfaceType m_SurfaceType;
 

@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -114,7 +114,8 @@ NavMeshSettings:
   m_NavMeshData: {fileID: 0}
 --- !u!114 &10572060 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8549556856384959174, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8549556856384959174, guid: 313be558403d7424aac055241cd4f92b,
+    type: 3}
   m_PrefabInstance: {fileID: 8549556856378745818}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -188,7 +189,6 @@ MonoBehaviour:
   moveSpeed: 10
   rotateSpeed: 60
   jumpForce: 300
-  isGrounded: 0
 --- !u!4 &189505146
 Transform:
   m_ObjectHideFlags: 0
@@ -457,11 +457,13 @@ MonoBehaviour:
   MouseEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   MouseExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   MouseClick:
     m_PersistentCalls:
       m_Calls:
@@ -476,7 +478,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!65 &697957167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -508,7 +511,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Back to menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -667,7 +671,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Score:0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1646,6 +1651,12 @@ MonoBehaviour:
   maxScale: 1.1
   animationPrecision: 0.05
   animateEmission: 1
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!23 &1379557317
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1955,9 +1966,12 @@ MonoBehaviour:
   m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
+  m_BeforeStackBundles:
+  - assemblyQualifiedName: RenderWithMaterial, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   m_AfterStackBundles:
-  - assemblyQualifiedName: Overlay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: Overlay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1473113678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,7 +2007,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
 --- !u!114 &1473113680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,7 +2047,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2327,57 +2341,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSettings: {fileID: 11400000, guid: d430eab26bc7b4101a3345b0d4364adc, type: 2}
-  bulletSoundSettings: {fileID: 11400000, guid: c911ad789844f4fd384bc5c32ebf3443, type: 2}
+  bulletSoundSettings: {fileID: 11400000, guid: c911ad789844f4fd384bc5c32ebf3443,
+    type: 2}
   controls:
     m_Asset: {fileID: 11400000, guid: 578cc93d19b604ad5ac64f1379351595, type: 3}
     m_GameplayFireActionStarted:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayFireActionPerformed:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayFireActionCancelled:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayLookActionStarted:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayLookActionPerformed:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayLookActionCancelled:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayJumpActionStarted:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayJumpActionPerformed:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayJumpActionCancelled:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayMoveActionStarted:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayMoveActionPerformed:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
     m_GameplayMoveActionCancelled:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      m_TypeName: Sevakon.Input.Controls+ActionEvent, Sevakon, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   bulletSfx: {fileID: 1497610024}
   scoreText: {fileID: 769040674}
   winDialogObjects:
@@ -2452,7 +2479,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: You win.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -2664,55 +2692,68 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959175, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959169, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959169, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8549556856384959169, guid: 313be558403d7424aac055241cd4f92b, type: 3}
+    - target: {fileID: 8549556856384959169, guid: 313be558403d7424aac055241cd4f92b,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
