@@ -1,14 +1,17 @@
 
 # Sevakon
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/uTljPs-2CKk/0.jpg)](https://www.youtube.com/watch?v=uTljPs-2CKk)
+[![Sevakon](https://img.youtube.com/vi/uTljPs-2CKk/0.jpg)](https://www.youtube.com/watch?v=uTljPs-2CKk)
 
 Game prototype to experment with some of the newer Unity features:
 
  - Lightweight render pipeline
- - Postprocessing stack and custom effects
+ - Postprocessing stack, custom effects, generic effects from materials
  - The new Input System
  - ECS/Job System/Burst compiler
- - ShaderGraph 
+ - ShaderGraph, vertex displacement, custom nodes, image effects for Postprocessing stack
+
+![Shader effects](./screenshot.png)
+
 
 Name was generated with a random game name generator.
 Unity 2018.3.0b2
