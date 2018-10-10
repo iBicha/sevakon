@@ -20,7 +20,8 @@ public class RenderWithMaterialRenderer : PostProcessEffectRenderer<RenderWithMa
     public override void Render(PostProcessRenderContext context)
     {
 #if UNITY_EDITOR
-        context.command.SetGlobalTexture(_PreviewTexture, context.source);
+        if(!context.isSceneView)
+            context.command.SetGlobalTexture(_PreviewTexture, context.source);
 #endif
         Blit(context.command, context.source, context.destination, settings.material);
     }
