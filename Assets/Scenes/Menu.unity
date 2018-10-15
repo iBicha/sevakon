@@ -1316,7 +1316,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stopNaNPropagation: 1
-  antialiasingMode: 1
+  antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -1361,6 +1361,8 @@ MonoBehaviour:
   - assemblyQualifiedName: RenderWithMaterial, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   - assemblyQualifiedName: RenderWithMaterial2, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: RenderWithMaterial3, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!81 &1980507904
 AudioListener:

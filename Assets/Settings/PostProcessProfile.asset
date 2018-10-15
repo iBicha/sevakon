@@ -19,6 +19,7 @@ MonoBehaviour:
   - {fileID: 114367987275224822}
   - {fileID: 114127048253844264}
   - {fileID: 114370718323820822}
+  - {fileID: 114304377122571588}
 --- !u!114 &114127048253844264
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -59,10 +60,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 1.5
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.5
   softKnee:
     overrideState: 0
     value: 0.5
@@ -86,6 +87,28 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   dirtIntensity:
+    overrideState: 0
+    value: 0
+--- !u!114 &114304377122571588
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242bb62d3aaf1439ebdaa21300611d6f, type: 3}
+  m_Name: RenderWithMaterial3
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  material:
+    overrideState: 1
+    value: {fileID: 2100000, guid: a3ada1b7a85244e51b2f69766a8cd669, type: 2}
+  depthMode:
     overrideState: 0
     value: 0
 --- !u!114 &114367987275224822
@@ -140,10 +163,10 @@ MonoBehaviour:
     value: 1
   material:
     overrideState: 1
-    value: {fileID: 2100000, guid: a3ada1b7a85244e51b2f69766a8cd669, type: 2}
+    value: {fileID: 2100000, guid: 7ab2fdb37c38844ff9d4d6c5e21dec6d, type: 2}
   depthMode:
     overrideState: 1
-    value: 0
+    value: 1
 --- !u!114 &114375464177707528
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -156,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
