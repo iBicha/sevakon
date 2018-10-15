@@ -17,8 +17,8 @@ MonoBehaviour:
   - {fileID: 114252324386167986}
   - {fileID: 114519825960210478}
   - {fileID: 114367987275224822}
-  - {fileID: 114333415672072500}
   - {fileID: 114127048253844264}
+  - {fileID: 114370718323820822}
 --- !u!114 &114127048253844264
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -37,7 +37,10 @@ MonoBehaviour:
     value: 1
   material:
     overrideState: 1
-    value: {fileID: 2100000, guid: a3ada1b7a85244e51b2f69766a8cd669, type: 2}
+    value: {fileID: 2100000, guid: e43b144c336254275838ae41faea7954, type: 2}
+  depthMode:
+    overrideState: 1
+    value: 0
 --- !u!114 &114252324386167986
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -85,35 +88,6 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &114333415672072500
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fbfcb8e3940843b99787cd07c22f834, type: 3}
-  m_Name: Overlay
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  overlayTexture:
-    overrideState: 1
-    value: {fileID: 2800000, guid: abb66e181cea94298b8b4365f0ea3199, type: 3}
-    defaultState: 1
-  intensity:
-    overrideState: 1
-    value: 0.1
-  displacement:
-    overrideState: 1
-    value: 0.5
-  displacementSpeed:
-    overrideState: 1
-    value: 0.1
 --- !u!114 &114367987275224822
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -148,6 +122,28 @@ MonoBehaviour:
   scale:
     overrideState: 0
     value: 0.18
+--- !u!114 &114370718323820822
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26a377304ede4257b7cf58e62157d63, type: 3}
+  m_Name: RenderWithMaterial2
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  material:
+    overrideState: 1
+    value: {fileID: 2100000, guid: a3ada1b7a85244e51b2f69766a8cd669, type: 2}
+  depthMode:
+    overrideState: 1
+    value: 0
 --- !u!114 &114375464177707528
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1478,6 +1474,9 @@ MonoBehaviour:
   material:
     overrideState: 0
     value: {fileID: 0}
+  depthMode:
+    overrideState: 0
+    value: 0
 --- !u!114 &114519825960210478
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1541,6 +1540,9 @@ MonoBehaviour:
   material:
     overrideState: 0
     value: {fileID: 0}
+  depthMode:
+    overrideState: 0
+    value: 0
 --- !u!114 &114756782271144386
 MonoBehaviour:
   m_ObjectHideFlags: 3

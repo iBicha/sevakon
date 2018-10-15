@@ -1448,12 +1448,14 @@ MonoBehaviour:
   m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
-  m_BeforeStackBundles:
-  - assemblyQualifiedName: RenderWithMaterial, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  m_BeforeStackBundles: []
   m_AfterStackBundles:
   - assemblyQualifiedName: Overlay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - assemblyQualifiedName: RenderWithMaterial, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - assemblyQualifiedName: RenderWithMaterial2, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!81 &1980507904
 AudioListener:
   m_ObjectHideFlags: 0

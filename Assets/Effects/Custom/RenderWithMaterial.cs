@@ -5,17 +5,26 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
 [Serializable]
-[PostProcess(typeof(RenderWithMaterialRenderer), PostProcessEvent.BeforeStack, "Custom/Render With Material")]
+[PostProcess(typeof(RenderWithMaterialRenderer), PostProcessEvent.AfterStack, "Custom/Render With Material")]
 public class RenderWithMaterial : PostProcessEffectSettings
 {
     [Tooltip("Material used for rendering.")]
     public MaterialParameter material = new MaterialParameter();
+    
+    [Tooltip("Depth texture mode.")]
+    public CameraFlagsParameter depthMode = new CameraFlagsParameter(){value = DepthTextureMode.None};
+
 }
 
 public class RenderWithMaterialRenderer : PostProcessEffectRenderer<RenderWithMaterial>
 {
     private static int _MainTex = Shader.PropertyToID("_MainTex");
     private static int _PreviewTexture = Shader.PropertyToID("_PreviewTexture");
+
+    public override DepthTextureMode GetCameraFlags()
+    {
+        return settings.depthMode;
+    }
 
     public override void Render(PostProcessRenderContext context)
     {

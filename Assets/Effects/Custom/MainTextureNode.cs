@@ -14,8 +14,8 @@ namespace UnityEditor.ShaderGraph
         public const int OutputSlotBId = 3;
         public const int OutputSlotAId = 4;
 
-        public const int UVInput = 5;
-        public const int UVOutput = 6;
+        public const int InputSlotUVId = 5;
+        public const int OutputSlotUVId = 6;
 
         const string kOutputSlotRGBAName = "RGBA";
         const string kOutputSlotRName = "R";
@@ -54,17 +54,17 @@ namespace UnityEditor.ShaderGraph
             AddSlot(new Vector1MaterialSlot(OutputSlotAId, kOutputSlotAName, kOutputSlotAName, SlotType.Output, 0,
                 ShaderStageCapability.Fragment));
 
-            var uvOutSlot = new UVMaterialSlot(UVOutput, kUVOutputName, kUVOutputName, UVChannel.UV0);
+            var uvOutSlot = new UVMaterialSlot(OutputSlotUVId, kUVOutputName, kUVOutputName, UVChannel.UV0);
             typeof(MaterialSlot).GetField("m_SlotType", BindingFlags.NonPublic | BindingFlags.Instance)
                 .SetValue(uvOutSlot, SlotType.Output);
             AddSlot(uvOutSlot);
             
             AddSlot(new Texture2DMaterialSlot(TextureInputId, kTextureInputName, kTextureInputName, SlotType.Input, ShaderStageCapability.All, true));
             
-            AddSlot(new UVMaterialSlot(UVInput, kUVInputName, kUVInputName, UVChannel.UV0));
+            AddSlot(new UVMaterialSlot(InputSlotUVId, kUVInputName, kUVInputName, UVChannel.UV0));
 
             RemoveSlotsNameNotMatching(new[]
-                {OutputSlotRGBAId, OutputSlotRId, OutputSlotGId, OutputSlotBId, OutputSlotAId, UVOutput, UVInput, TextureInputId});
+                {OutputSlotRGBAId, OutputSlotRId, OutputSlotGId, OutputSlotBId, OutputSlotAId, OutputSlotUVId, InputSlotUVId, TextureInputId});
         }
         
         public override string GetVariableNameForSlot(int slotId)
@@ -81,33 +81,54 @@ namespace UnityEditor.ShaderGraph
         {
 
             var textureInput = generationMode.IsPreview() ? kTexturePreviewName : kTextureInputName;
+
+            var doR = IsSlotConnected(OutputSlotRId);
+            var doG = IsSlotConnected(OutputSlotGId);
+            var doB = IsSlotConnected(OutputSlotBId);
+            var doA = IsSlotConnected(OutputSlotAId);
+
+            var doRGBA = doR || doG || doB || doA || IsSlotConnected(OutputSlotRGBAId);
+            var doUV = doRGBA ||  IsSlotConnected(OutputSlotUVId);
             
-            var uvName = GetSlotValue(UVInput, generationMode);
+            if (doUV)
+            {
+                var uvName = GetSlotValue(InputSlotUVId, generationMode);
             
-            var uvSet = string.Format("{0}2 {1} = {2};"
-                , precision
-                , GetVariableNameForSlot(UVInput)
-                , uvName);
-            visitor.AddShaderChunk(uvSet, true);
+                var uvSet = string.Format("{0}2 {1} = {2};"
+                    , precision
+                    , GetVariableNameForSlot(InputSlotUVId)
+                    , uvName);
+                visitor.AddShaderChunk(uvSet, true); 
+            }
 
-            var result = string.Format("{0}4 {1} = SAMPLE_TEXTURE2D({2}, {3}, {4});"
-                , precision
-                , GetVariableNameForSlot(OutputSlotRGBAId)
-                , textureInput
-                , "sampler" + textureInput
-                , GetVariableNameForSlot(UVInput));
+            if (doRGBA)
+            {
+                var result = string.Format("{0}4 {1} = SAMPLE_TEXTURE2D({2}, {3}, {4});"
+                    , precision
+                    , GetVariableNameForSlot(OutputSlotRGBAId)
+                    , textureInput
+                    , "sampler" + textureInput
+                    , GetVariableNameForSlot(InputSlotUVId));
 
-            visitor.AddShaderChunk(result, true);
+                visitor.AddShaderChunk(result, true);
+            }
 
+            if(doR)
             visitor.AddShaderChunk(
                 string.Format("{0} {1} = {2}.r;", precision, GetVariableNameForSlot(OutputSlotRId),
                     GetVariableNameForSlot(OutputSlotRGBAId)), true);
+            
+            if(doG)
             visitor.AddShaderChunk(
                 string.Format("{0} {1} = {2}.g;", precision, GetVariableNameForSlot(OutputSlotGId),
                     GetVariableNameForSlot(OutputSlotRGBAId)), true);
+            
+            if(doB)
             visitor.AddShaderChunk(
                 string.Format("{0} {1} = {2}.b;", precision, GetVariableNameForSlot(OutputSlotBId),
                     GetVariableNameForSlot(OutputSlotRGBAId)), true);
+            
+            if(doA)
             visitor.AddShaderChunk(
                 string.Format("{0} {1} = {2}.a;", precision, GetVariableNameForSlot(OutputSlotAId),
                     GetVariableNameForSlot(OutputSlotRGBAId)), true);
