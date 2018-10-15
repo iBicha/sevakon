@@ -5,8 +5,8 @@ using UnityEditor.Graphing;
 
 namespace UnityEditor.ShaderGraph
 {
-    [Title("Input","Image Effects", "Main Texture")]
-    public class MainTextureNode : AbstractMaterialNode, IGeneratesBodyCode, IMayRequireMeshUV
+    [Title("Input","Image Effects", "Depth Texture")]
+    public class DepthTextureNode : AbstractMaterialNode, IGeneratesBodyCode, IMayRequireMeshUV
     {
         public const int OutputSlotRGBAId = 0;
         public const int OutputSlotRId = 1;
@@ -17,10 +17,6 @@ namespace UnityEditor.ShaderGraph
         public const int InputSlotUVId = 5;
         public const int OutputSlotUVId = 6;
 
-        const int TextureInputId = 7;
-
-        public const int OutputSlotTexelSizeId = 8;
-
         const string kOutputSlotRGBAName = "RGBA";
         const string kOutputSlotRName = "R";
         const string kOutputSlotGName = "G";
@@ -30,16 +26,14 @@ namespace UnityEditor.ShaderGraph
         const string kUVInputName = "UV";
         const string kUVOutputName = "UV";
 
-        const string kTexelSizeOutputName = "_MainTex_TexelSize";
-
-        const string kTextureInputName = "_MainTex";
-        const string kTexturePreviewName = "_PreviewTexture";
+        public const int TextureInputId = 7;
+        const string kTextureInputName = "_CameraDepthTexture";
 
         public override bool hasPreview => true;
 
-        public MainTextureNode()
+        public DepthTextureNode()
         {
-            name = "Main Texture";
+            name = "Depth Texture";
             UpdateNodeAfterDeserialization();
         }
 
@@ -64,23 +58,18 @@ namespace UnityEditor.ShaderGraph
                 .SetValue(uvOutSlot, SlotType.Output);
             AddSlot(uvOutSlot);
             
-            AddSlot(new Vector4MaterialSlot(OutputSlotTexelSizeId, "Texel Size", kTexelSizeOutputName, SlotType.Output, Vector4.zero, ShaderStageCapability.All));
-            
             AddSlot(new Texture2DMaterialSlot(TextureInputId, kTextureInputName, kTextureInputName, SlotType.Input, ShaderStageCapability.All, true));
             
             AddSlot(new UVMaterialSlot(InputSlotUVId, kUVInputName, kUVInputName, UVChannel.UV0));
 
             RemoveSlotsNameNotMatching(new[]
-                {OutputSlotRGBAId, OutputSlotRId, OutputSlotGId, OutputSlotBId, OutputSlotAId, OutputSlotUVId, OutputSlotTexelSizeId, InputSlotUVId, TextureInputId});
+                {OutputSlotRGBAId, OutputSlotRId, OutputSlotGId, OutputSlotBId, OutputSlotAId, OutputSlotUVId, InputSlotUVId, TextureInputId});
         }
         
         public override string GetVariableNameForSlot(int slotId)
         {
             if (slotId == TextureInputId)
                 return kTextureInputName;
-
-//            if (slotId == OutputSlotTexelSizeId)
-//                return kTexelSizeOutputName;
             
             return base.GetVariableNameForSlot(slotId);
         }
@@ -90,7 +79,7 @@ namespace UnityEditor.ShaderGraph
             GenerationMode generationMode)
         {
 
-            var textureInput = generationMode.IsPreview() ? kTexturePreviewName : kTextureInputName;
+            var textureInput = kTextureInputName;
 
             var doR = IsSlotConnected(OutputSlotRId);
             var doG = IsSlotConnected(OutputSlotGId);
@@ -99,8 +88,6 @@ namespace UnityEditor.ShaderGraph
 
             var doRGBA = doR || doG || doB || doA || IsSlotConnected(OutputSlotRGBAId);
             var doUV = doRGBA ||  IsSlotConnected(OutputSlotUVId);
-
-            var doTexelSize = IsSlotConnected(OutputSlotTexelSizeId);
             
             if (doUV)
             {
@@ -144,12 +131,6 @@ namespace UnityEditor.ShaderGraph
             visitor.AddShaderChunk(
                 string.Format("{0} {1} = {2}.a;", precision, GetVariableNameForSlot(OutputSlotAId),
                     GetVariableNameForSlot(OutputSlotRGBAId)), true);
-            
-            if(doTexelSize)
-                visitor.AddShaderChunk(
-                    string.Format("{0}4 {1} = {2};", precision, GetVariableNameForSlot(OutputSlotTexelSizeId),
-                        kTexelSizeOutputName), true);
-
         }
 
         public bool RequiresMeshUV(UVChannel channel, ShaderStageCapability stageCapability)
@@ -173,7 +154,7 @@ namespace UnityEditor.ShaderGraph
             base.CollectShaderProperties(properties, generationMode);
             properties.AddShaderProperty(new TextureShaderProperty()
             {
-                overrideReferenceName = "_PreviewTexture",
+                overrideReferenceName = kTextureInputName,
                 generatePropertyBlock = false
             });
         }

@@ -32,7 +32,11 @@ public class RenderWithMaterialRenderer : PostProcessEffectRenderer<RenderWithMa
         if(!context.isSceneView)
             context.command.SetGlobalTexture(_PreviewTexture, context.source);
 #endif
+        
+        var sampleName = $"RenderWithMaterial({settings.material})";
+        context.command.BeginSample(sampleName);
         Blit(context.command, context.source, context.destination, settings.material);
+        context.command.EndSample(sampleName);
     }
 
     private static void Blit(CommandBuffer command, RenderTargetIdentifier source, RenderTargetIdentifier destination,

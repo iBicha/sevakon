@@ -170,7 +170,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
             var zTestBuilder = new ShaderStringBuilder(1);
             var zWriteBuilder = new ShaderStringBuilder(1);
 
-            //        Cull Off ZWrite Off ZTest Always
+            // Cull Off ZWrite Off ZTest Always
             materialOptions.cullMode = SurfaceMaterialOptions.CullMode.Off;
             materialOptions.zWrite = SurfaceMaterialOptions.ZWrite.Off;
             materialOptions.zTest = SurfaceMaterialOptions.ZTest.Always;
