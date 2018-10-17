@@ -39,6 +39,13 @@ public class RenderWithMaterialEditor : PostProcessEffectEditor<RenderWithMateri
        
     }
     
+    public override string GetDisplayTitle()
+    {
+        var settings = (RenderWithMaterial) target;
+        var material = settings.material.value;
+        return ObjectNames.GetInspectorTitle(material);
+    }
+
     protected void MaterialPropertiesGui(Material material)
     {
         if (material == null)
