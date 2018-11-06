@@ -9,6 +9,7 @@ Game prototype to experment with some of the newer Unity features:
  - The new Input System
  - ECS/Job System/Burst compiler
  - ShaderGraph, vertex displacement, custom nodes, image effects for Postprocessing stack
+ - Also check [iBicha/ImageEffectGraph](https://github.com/iBicha/ImageEffectGraph)
 
 ![Shader effects](./screenshot.png)
 
